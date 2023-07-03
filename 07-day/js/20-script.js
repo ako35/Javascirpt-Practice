@@ -12,13 +12,25 @@ let userArray = [];
 let randomArray = [];
 
 btnGenerateElement.addEventListener("click", () => {
-  userArray = [];
-  randomArray = [];
-  for (let i = 0; i < 10; i++) {
-    userArray.push(getNumber());
-    randomArray.push(getNumber());
-  }
-  displayNumbersElement.innerHTML = userArray;
+    while(randomArray.length < 6){
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        if(!randomArray.includes(randomNumber)){
+            randomArray.push(randomNumber);
+        }
+    }
+
+    randomArray.sort((a, b) => a - b);
+    displayRandomNumbersElement.innerHTML = randomArray;
+
+    const uniqueArray = [...new Set(randomArray.concat(userArray))];
+    let tutanTahmin = 12-uniqueArray.length;
+
+    if(tutanTahmin==6){
+        sonucElement.innerHTML = 'Tebrikler';
+    }
+    else{
+        sonucElement.innerHTML = `Tutan Tahmin: ${tutanTahmin}`;
+    }
 });
 
 btnKaydetElement.addEventListener("click", () => {
