@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+
+    <script>
+        const baslik = document.getElementsByTagName('h2');
+
+        const array1 = [1, 2, 3, 4, 5];
+        const array2 = [6, 7, 4, 5, 10];
+
+        baslik[0].innerHTML = array1 + "," + array2;
+
+        baslik[1].innerHTML = array1.concat(array2);
+
+        baslik[2].innerHTML = [...array1, ...array2];
+
+        baslik[3].innerHTML = [...new Set([...array1, ...array2])];
+    </script>
+    
+</body>
+</html>
